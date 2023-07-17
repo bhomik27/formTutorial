@@ -33,30 +33,26 @@ function printUserDetails(userDetails){
     const deleteButton = document.createElement('input');
     deleteButton.type = 'button';
     deleteButton.value = 'Delete';
+    deleteButton.style.fontWeight = 'bold';
     deleteButton.onclick = () => {
         localStorage.removeItem(userDetails.name)
         parentElement.removeChild(childElement)
-    }
+    };
 
+    const editButton = document.createElement('input');
+  editButton.type = 'button';
+  editButton.value = 'Edit';
+  editButton.style.fontWeight = 'bold';
+  editButton.onclick = () => {
+    document.getElementById('name').value = userDetails.name;
+    document.getElementById('email').value = userDetails.email;
+    document.getElementById('number').value = userDetails.number;
+  };
+
+    
     parentElement.appendChild(childElement);
     childElement.appendChild(deleteButton);
-
+    childElement.appendChild(editButton);
     
 }
 
-
-// function deleteUserDetails(event) {
-//     event.preventDefault();
-//     console.log("Delete button clicked");
-
-//     const listItem = this.parentNode;
-//     const parentElement = listItem.parentNode;
-
-//     localStorage.removeItem(userDetails.name);
-//     parentElement.removeChild(listItem);
-
-//     deleteButton.onClick = () => {
-//         localStorage.removeItem(userDetails.name);
-//     }
-
-// }
